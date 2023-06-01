@@ -1,0 +1,19 @@
+.seatings {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    .screens {
+        width: fit-content;
+        align-items: center;
+        text-align: center;
+
+        h3 {
+            background-color: bisque;
+            padding: 1rem;
+            width: 100%;
+        }
+    }
+}
