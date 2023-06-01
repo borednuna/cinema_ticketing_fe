@@ -1,0 +1,32 @@
+.header {
+    position: relative;
+    display: flex;
+    top: 0;
+    background-color: #0f0f0f;
+    width: 100%;
+    height: 5rem;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+
+    .title {
+        color: #c1c7c9;
+    }
+
+    #filled-basic {
+        background-color: #c1c7c9;
+        border-radius: 0.5rem;
+        width: 30rem;
+    }
+
+    .menubar {
+        display: flex;
+        flex-direction: row;
+
+        .subtitle {
+            color: #c1c7c9;
+            margin-left: 3rem;
+            margin-right: 3rem;
+        }
+    }
+}

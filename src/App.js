@@ -2,12 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Header from './components/Header';
 import Seatings from './pages/Seatings';
+import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
     <div className="App">
-      <Seatings />
+      <Header />
+      {/* <Seatings /> */}
+      <LandingPage />
     </div>
   );
 }
