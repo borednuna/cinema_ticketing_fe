@@ -1,0 +1,15 @@
+.landingpage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    h1 {
+        margin: 2rem;
+    }
+}

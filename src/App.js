@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Header from './components/Header';
 import Seatings from './pages/Seatings';
 import LandingPage from './pages/LandingPage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <Header />
       {/* <Seatings /> */}
       <LandingPage />
+      <Footer />
     </div>
   );
 }

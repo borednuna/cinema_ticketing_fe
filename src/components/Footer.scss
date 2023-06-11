@@ -1,0 +1,16 @@
+.footer {
+    width: 100%;
+    height: 5rem;
+    background-color: #000;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+
+    h1 {
+        color: #fff;
+        margin: auto;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+}
