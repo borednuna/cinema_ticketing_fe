@@ -7,6 +7,7 @@ import Seatings from './pages/Seatings';
 import LandingPage from './pages/LandingPage';
 import Footer from './components/Footer';
 import MovieDetails from './pages/MovieDetails';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" element={<LandingPage/>} />
           <Route path='/seatings' element={<Seatings/>} />
           <Route path='/moviedetails' element={<MovieDetails/>} />
+          <Route path='/profile' element={<Profile/>} />
         </Routes>
         <Footer />
       </Router>

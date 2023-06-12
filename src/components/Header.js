@@ -9,7 +9,7 @@ function Header() {
       <TextField id="filled-basic" label="Search" variant="filled" />
       <div className="menubar">
         <a className="subtitle">Tickets</a>
-        <a className="subtitle">Profile</a>
+        <a href="/profile" className="subtitle">Profile</a>
       </div>
     </div>
   );
