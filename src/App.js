@@ -8,6 +8,7 @@ import LandingPage from './pages/LandingPage';
 import Footer from './components/Footer';
 import MovieDetails from './pages/MovieDetails';
 import Profile from './pages/Profile';
+import Tickets from './pages/Tickets';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/seatings' element={<Seatings/>} />
           <Route path='/moviedetails' element={<MovieDetails/>} />
           <Route path='/profile' element={<Profile/>} />
+          <Route path='/tickets' element={<Tickets/>} />
         </Routes>
         <Footer />
       </Router>

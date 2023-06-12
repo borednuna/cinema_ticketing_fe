@@ -1,0 +1,36 @@
+.tickets {
+    position: relative;
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        margin: 2rem;
+    }
+
+    h2 {
+        text-decoration: underline;
+    }
+
+    .card_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .card {
+        color: white;
+        background-color: #1F6E8C;
+        padding: 1rem;
+        border-radius: 1rem;
+        transition: all 0.2s ease;
+        height: fit-content;
+
+        &:hover {
+            transform: scale(1.05);
+            background-color: #0E2954;
+            box-shadow: 1px 1px 10px 1px #1F6E8C;
+            transition: all 0.2s ease;
+        }
+    }
+}

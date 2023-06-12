@@ -8,7 +8,7 @@ function Header() {
       <a href="/" className="title">Cinema Ticketing</a>
       <TextField id="filled-basic" label="Search" variant="filled" />
       <div className="menubar">
-        <a className="subtitle">Tickets</a>
+        <a href="/tickets" className="subtitle">Tickets</a>
         <a href="/profile" className="subtitle">Profile</a>
       </div>
     </div>
