@@ -3,7 +3,8 @@ import "./Card.scss";
 
 import Spiderman from "../img/spiderman.jpg";
 
-function Card() {
+function Card(props) {
+  console.log(props);
   return (
     <div className="card">
         <img src={Spiderman} alt="placeholder" />
