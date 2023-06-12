@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import SeatPicker from "react-seat-picker";
+import Button from '@mui/material/Button';
 import ReactTooltip from 'react-tooltip'
 import { useNavigate } from "react-router-dom";
 import "./Seatings.scss";
@@ -162,12 +163,7 @@ const Seatings = () => {
                       </h1>
                     </div>
                   </div>
-                  <button
-                    className="continue"
-                    // onClick={() => navigate(`/Final/${selected}/${totalprice}`)}
-                  >
-                    continue
-                  </button>
+                  <Button variant="contained">Confirm</Button>
                 </>
               ) : null}
             </div>
