@@ -1,0 +1,48 @@
+.movieDetails {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    height: fit-content;
+    text-align: center;
+    align-items: center;
+
+    .details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+
+        img {
+            display: flex;
+            height: 70vh;
+            width: 25vw;
+            object-fit: cover;
+            border-radius: 1rem;
+            margin: 1.5rem;
+        }
+
+        .details-text {
+            display: flex;
+            width: 60vw;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+
+            Button {
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin: 1rem;
+                padding: 1.2rem;
+            }
+        }
+    }
+
+    h1 {
+        width: 100%;
+        margin: 2rem;
+        padding: 0;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+}

@@ -11,6 +11,12 @@
 
     .title {
         color: #c1c7c9;
+        transition: all 0.3s ease;
+
+        &:hover {
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+        }
     }
 
     #filled-basic {
@@ -27,6 +33,12 @@
             color: #c1c7c9;
             margin-left: 3rem;
             margin-right: 3rem;
+            transition: all 0.3s ease;
+
+            &:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+            }
         }
     }
 }

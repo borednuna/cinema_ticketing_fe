@@ -4,11 +4,13 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    min-height: 80vh;
 
     .screens {
         width: fit-content;
         align-items: center;
         text-align: center;
+        margin: auto;
 
         h3 {
             background-color: bisque;

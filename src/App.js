@@ -1,18 +1,25 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.scss';
 
 import Header from './components/Header';
 import Seatings from './pages/Seatings';
 import LandingPage from './pages/LandingPage';
 import Footer from './components/Footer';
+import MovieDetails from './pages/MovieDetails';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      {/* <Seatings /> */}
-      <LandingPage />
-      <Footer />
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<LandingPage/>} />
+          <Route path='/seatings' element={<Seatings/>} />
+          <Route path='/moviedetails' element={<MovieDetails/>} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }

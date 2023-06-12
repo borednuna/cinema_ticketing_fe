@@ -5,7 +5,7 @@ import "./Header.scss";
 function Header() {
   return (
     <div className="header">
-      <a className="title">Cinema Ticketing</a>
+      <a href="/" className="title">Cinema Ticketing</a>
       <TextField id="filled-basic" label="Search" variant="filled" />
       <div className="menubar">
         <a className="subtitle">Tickets</a>

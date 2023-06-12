@@ -10,21 +10,20 @@ function LandingPage() {
             <Slider />
             <h1>Now Playing</h1>
             <div className="cards">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                <a href="/moviedetails"><Card /></a>
+                <a href="/moviedetails"><Card /></a>
+                <a href="/moviedetails"><Card /></a>
+                <a href="/moviedetails"><Card /></a>
+                <a href="/moviedetails"><Card /></a>
+                <a href="/moviedetails"><Card /></a>
+                <a href="/moviedetails"><Card /></a>
             </div>
             <h1>Coming Soon</h1>
             <div className="cards">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                <a href="/moviedetails"><Card /></a>
+                <a href="/moviedetails"><Card /></a>
+                <a href="/moviedetails"><Card /></a>
+                <a href="/moviedetails"><Card /></a>
             </div>
         </div>
     );
