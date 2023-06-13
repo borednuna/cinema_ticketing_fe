@@ -7,7 +7,6 @@ import Spidey from "../img/spiderman.jpg";
 function MovieDetails(props) {
     const { props: movie } = props;
     const [sesiPemutaran, setSesiPemutaran] = useState([]);
-    console.log(movie);
 
     const fetchSesiPemutaran = () => {
         fetch("http://localhost:3100/sesipemutaranbyid?ss_id_film=" + movie.f_id_film, {
@@ -39,7 +38,7 @@ function MovieDetails(props) {
                     <p>Genre: {movie.f_genre}</p>
                     <p>Jadwal:</p>
                     <div className="jadwal">
-                    {sesiPemutaran === undefined || Object.keys(sesiPemutaran).length === 0
+                        {sesiPemutaran === undefined || Object.keys(sesiPemutaran).length === 0
                         ? null
                         : sesiPemutaran.map((sesi) => (
                             <a href="/seatings"><Button variant="contained">{sesi.j_waktu.slice(0, 10) + " " + sesi.j_waktu.slice(11, 19)}</Button></a>

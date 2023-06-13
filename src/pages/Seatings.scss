@@ -12,6 +12,33 @@
         text-align: center;
         margin: auto;
 
+        // SeatPicker.scss
+
+        .seat-picker {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 50vw;
+        }
+        
+        .seat {
+            width: 40px;
+            height: 40px;
+            background-color: #e2e2e2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        
+            &.selected {
+            background-color: #8bc34a;
+            color: white;
+            }
+        }
+  
+
         h3 {
             background-color: bisque;
             padding: 1rem;

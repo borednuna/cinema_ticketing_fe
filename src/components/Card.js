@@ -4,11 +4,11 @@ import "./Card.scss";
 import Spiderman from "../img/spiderman.jpg";
 
 function Card(props) {
-  console.log(props);
+  const { props: movie } = props;
   return (
     <div className="card">
-        <img src={Spiderman} alt="placeholder" />
-        <h1>Spiderman</h1>
+        <img src={movie.f_url_poster} alt="placeholder" />
+        <h1>{movie.f_judul}</h1>
     </div>
   );
 }

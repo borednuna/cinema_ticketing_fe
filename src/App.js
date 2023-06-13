@@ -12,6 +12,19 @@ import Tickets from './pages/Tickets';
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [sesiPemutaran, setSesiPemutaran] = useState([]);
+
+  const fetchSesiPemutaran = () => {
+    fetch("http://localhost:3100/allsesipemutaran", {
+      method: "GET",
+      headers: {
+          'Access-Control-Allow-Origin': '*'
+      }
+  })
+  .then((response) => response.json())
+  .then((result) => {setSesiPemutaran(result.rows)})
+  .catch((error) => console.log("error", error));
+}
 
     const fetchMovies = () => {
         fetch("http://localhost:3100/allmovies", {
@@ -27,6 +40,7 @@ function App() {
 
     useEffect(() => {
       fetchMovies();
+      fetchSesiPemutaran();
     }, [])
 
   return (
@@ -39,13 +53,21 @@ function App() {
           <Route path='/profile' element={<Profile/>} />
           <Route path='/tickets' element={<Tickets/>} />
           {movies === undefined || Object.keys(movies).length === 0
-                ? null
-                : movies.map((movie) => (
-                    <Route
-                      path={'/moviedetails/' + movie.f_id_film}
-                      element={<MovieDetails props={movie} />}
-                    />
-                  ))}
+            ? null
+            : movies.map((movie) => (
+                <Route
+                  path={'/moviedetails/' + movie.f_id_film}
+                  element={<MovieDetails props={movie} />}
+                />
+              ))}
+          {sesiPemutaran === undefined || Object.keys(sesiPemutaran).length === 0
+            ? null
+            : sesiPemutaran.map((sesi) => (
+                <Route
+                  path={'/sesipemutaran/' + sesi.ss_id_sesi_pemutaran}
+                  element={<Seatings props={sesi} />}
+                />
+              ))}
         </Routes>
         <Footer />
       </Router>

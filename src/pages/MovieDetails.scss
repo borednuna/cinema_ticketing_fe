@@ -29,6 +29,12 @@
             flex-direction: column;
             text-align: left;
 
+            .jadwal {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
             Button {
                 font-size: 1.2rem;
                 font-weight: 700;
