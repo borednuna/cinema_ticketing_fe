@@ -2,8 +2,6 @@ import React, {useState, useEffect} from "react";
 import Button from '@mui/material/Button';
 import "./MovieDetails.scss";
 
-import Spidey from "../img/spiderman.jpg";
-
 function MovieDetails(props) {
     const { props: movie } = props;
     const [sesiPemutaran, setSesiPemutaran] = useState([]);
@@ -41,7 +39,7 @@ function MovieDetails(props) {
                         {sesiPemutaran === undefined || Object.keys(sesiPemutaran).length === 0
                         ? null
                         : sesiPemutaran.map((sesi) => (
-                            <a href="/seatings"><Button variant="contained">{sesi.j_waktu.slice(0, 10) + " " + sesi.j_waktu.slice(11, 19)}</Button></a>
+                            <a href={"/sesipemutaran/" + sesi.ss_id_sesi_pemutaran}><Button variant="contained">{sesi.j_waktu.slice(0, 10) + " " + sesi.j_waktu.slice(11, 19)}</Button></a>
                         ))}
                     </div>
                 </div>
