@@ -1,0 +1,16 @@
+.signup {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: space-around;
+    min-height: 80vh;
+    margin: auto;
+    align-items: center;
+
+    form {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}

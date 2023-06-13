@@ -10,7 +10,10 @@ const Seatings = (props) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
 
   const handleSeatClick = (seatNumber) => {
-    if (selectedSeats.includes(seatNumber)) {
+  if (seatData[seatNumber].k_status === "Terisi") {
+    // If the seat is already reserved, do nothing
+    return;
+  } else if (selectedSeats.includes(seatNumber)) {
       // If the seat is already selected, deselect it
       setSelectedSeats(selectedSeats.filter((seat) => seat !== seatNumber));
     } else {
@@ -24,7 +27,11 @@ const Seatings = (props) => {
 
     for (let i = 0; i < seatData.length; i++) {
       const isSeatSelected = selectedSeats.includes(i);
-      const seatClass = isSeatSelected ? 'selected' : '';
+      let seatClass = isSeatSelected ? 'selected' : '';
+      
+      if (seatData[i].k_status === "Terisi") {
+        seatClass = 'reserved';
+      }
       
       seats.push(
         <div

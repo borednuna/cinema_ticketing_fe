@@ -22,8 +22,6 @@ function MovieDetails(props) {
         fetchSesiPemutaran();
     }, [movie]);
 
-    console.log(sesiPemutaran);
-
     return (
         <div className="movieDetails">
             <h1>Movie Details</h1>

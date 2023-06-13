@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Profile.scss";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -13,6 +13,7 @@ function Profile() {
             <TextField id="outlined-basic" label="Alamat" variant="outlined" defaultValue="Alamat" />
             <TextField id="outlined-basic" label="Email" variant="outlined" defaultValue="Email" />
             <a><Button variant="contained">Update Data Diri</Button></a>
+            <a><Button variant="contained">Logout</Button></a>
         </div>
     )
 }
