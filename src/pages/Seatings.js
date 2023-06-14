@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useSelector } from 'react-redux';
+import { Navigate, useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -9,12 +10,14 @@ import FormLabel from '@mui/material/FormLabel';
 import "./Seatings.scss";
 
 const Seatings = (props) => {
+  const { props: sesi } = props;
   const user = useSelector((state) => state.user);
+  const [idTransaksi, setIdTransaksi] = useState(null);
   const [seatData, setSeatData] = useState([]);
   const [jadwal, setJadwal] = useState([]);
-  const [payment, setPayment] = useState("Transfer bank");
-  const { props: sesi } = props;
+  const [payment, setPayment] = useState(null);
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const navigate = useNavigate();
 
   const postTransaction = (data) => {
     fetch('http://localhost:3100/transaksi-baru', {
@@ -26,14 +29,54 @@ const Seatings = (props) => {
       })
     .then(response => response.json())
     .then(result => {
-        console.log(result);
+        setIdTransaksi(result.insertedRow.t_id_transaksi);
     })
     .catch(error => {
         console.error('Error:', error);
     });
-}
+
+    for (let i = 0; i < selectedSeats.length; i++) {
+      updateSeat(seatData[selectedSeats[i]].k_id_kursi);
+    }
+
+    alert("Transaksi berhasil");
+    navigate("/tickets");
+  }
+
+  const updateSeat = (id_kursi) => {
+    let data = {
+      t_id_transaksi: idTransaksi,
+    }
+
+    fetch(`http://localhost:3100/updatekursi/` + id_kursi, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.text())
+      .then(data => {
+        console.log(data); // Success message or error message from the backend
+        // Handle the response or update the UI accordingly
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle the error
+      });
+  }
 
   const handleTransaction = () => {
+    if (user === null || user === undefined) {
+      alert("Silahkan signin terlebih dahulu");
+      return;
+    }
+
+    if (payment === null) {
+      alert("Silahkan pilih metode pembayaran");
+      return;
+    }
+
     let data = {
       t_waktu: "2023-05-18 11:00:00",
       t_total_harga: totalprice,
@@ -42,9 +85,7 @@ const Seatings = (props) => {
       t_id_customer: user.c_id
     }
     postTransaction(data);
-    console.log(JSON.stringify(data));
   }
-    
 
   const handleSeatClick = (seatNumber) => {
   if (seatData[seatNumber].k_status === "Terisi") {
@@ -131,8 +172,8 @@ const Seatings = (props) => {
         <div className="seatings">
             <h1>Seatings</h1>
             <div className="screens">
-              <div className="seat-picker">{renderSeats(seatData)}</div>
               <h3 className="screen">SCREEN</h3>
+              <div className="seat-picker">{renderSeats(seatData)}</div>
               {selectedSeats.length !== 0 ? (
                 <>
                   <div className="seat-price">
@@ -147,7 +188,7 @@ const Seatings = (props) => {
                     </div>
                   </div>
                   <FormControl>
-                    <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+                    <FormLabel id="demo-row-radio-buttons-group-label">Metode pembayaran</FormLabel>
                     <RadioGroup
                       row
                       aria-labelledby="demo-row-radio-buttons-group-label"

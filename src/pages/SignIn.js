@@ -22,6 +22,11 @@ function SignIn() {
     fetch(str_url)
       .then(response => response.json())
       .then(data => {
+        if (data.length === 0) {
+          alert('Username atau email tidak ditemukan');
+          return;
+        }
+
         dispatch({type: 'SET_USER', payload: data[0]});
         console.log(data)
       })

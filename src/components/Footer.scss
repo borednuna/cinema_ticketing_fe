@@ -1,16 +1,59 @@
 .footer {
     width: 100%;
-    height: 5rem;
+    height: fit-content;
     background-color: #000;
     text-align: center;
     align-items: center;
     position: relative;
     display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    text-align: center;
 
-    h1 {
+    h2 {
+        padding: 2rem;
         color: #fff;
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 2rem;
         margin: auto;
-        font-size: 2rem;
-        font-weight: 400;
+    }
+
+    .container {
+        width: 80vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
+
+        .cards {
+            margin: auto;
+            background-color: #222222;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            width: 10rem;
+            box-shadow: 15px 0px 15px 0px rgba(35, 35, 35, 0.75);
+
+            h1 {
+                color: #fff;
+                margin: auto;
+                font-size: 1.5rem;
+                font-weight: 400;
+                line-height: 2rem;
+            }
+
+            p {
+                line-height: 1.5rem;
+                color: #fff;
+                margin: auto;
+                font-size: 1rem;
+                font-weight: 400;
+            }
+        }
     }
 }

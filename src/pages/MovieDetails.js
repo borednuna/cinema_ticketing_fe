@@ -37,7 +37,12 @@ function MovieDetails(props) {
                         {sesiPemutaran === undefined || Object.keys(sesiPemutaran).length === 0
                         ? null
                         : sesiPemutaran.map((sesi) => (
-                            <a href={"/sesipemutaran/" + sesi.ss_id_sesi_pemutaran}><Button variant="contained">{sesi.j_waktu.slice(0, 10) + " " + sesi.j_waktu.slice(11, 19)}</Button></a>
+                            <div className="buttonsesi">
+                                <p>{sesi.b_nama}</p>
+                                <p>{sesi.b_kota}</p>
+                                <p>{"Rp" + sesi.j_harga + ",-"}</p>
+                                <a href={"/sesipemutaran/" + sesi.ss_id_sesi_pemutaran}><Button variant="contained">{sesi.j_waktu.slice(0, 10) + " " + sesi.j_waktu.slice(11, 19)}</Button></a>
+                            </div>
                         ))}
                     </div>
                 </div>
