@@ -12,8 +12,6 @@ function SignIn() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
-  console.log(user)
 
   const fetchUser = (data) => {
     let str_url = '';
@@ -48,10 +46,8 @@ function SignIn() {
         c_email: email
     }
     fetchUser(data);
-    // navigate("/");
+    navigate("/");
   };
-
-  // console.log(user)
 
   return (
     <div className="signup">

@@ -1,13 +1,50 @@
 import React, {useEffect, useState} from "react";
+import { useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 import "./Seatings.scss";
 
 const Seatings = (props) => {
-  const [seatings, setSeatings] = useState([]);
+  const user = useSelector((state) => state.user);
   const [seatData, setSeatData] = useState([]);
   const [jadwal, setJadwal] = useState([]);
+  const [payment, setPayment] = useState("Transfer bank");
   const { props: sesi } = props;
   const [selectedSeats, setSelectedSeats] = useState([]);
+
+  const postTransaction = (data) => {
+    fetch('http://localhost:3100/transaksi-baru', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+  const handleTransaction = () => {
+    let data = {
+      t_waktu: "2023-05-18 11:00:00",
+      t_total_harga: totalprice,
+      t_status: "Berhasil",
+      t_metode_pembayaran: payment,
+      t_id_customer: user.c_id
+    }
+    postTransaction(data);
+    console.log(JSON.stringify(data));
+  }
+    
 
   const handleSeatClick = (seatNumber) => {
   if (seatData[seatNumber].k_status === "Terisi") {
@@ -109,7 +146,20 @@ const Seatings = (props) => {
                       </h1>
                     </div>
                   </div>
-                  <Button variant="contained">Confirm</Button>
+                  <FormControl>
+                    <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+                    <RadioGroup
+                      row
+                      aria-labelledby="demo-row-radio-buttons-group-label"
+                      name="row-radio-buttons-group"
+                    >
+                      <FormControlLabel value="dana" control={<Radio />} label="Dana" onClick={() => {setPayment("Dana")}} />
+                      <FormControlLabel value="ovo" control={<Radio />} label="Ovo" onClick={() => {setPayment("Ovo")}} />
+                      <FormControlLabel value="transfer bank" control={<Radio />} label="Transfer Bank" onClick={() => {setPayment("Transfer bank")}} />
+                      <FormControlLabel value="gopay" control={<Radio />} label="Gopay" onClick={() => {setPayment("Gopay")}} />
+                    </RadioGroup>
+                  </FormControl>
+                  <Button onClick={handleTransaction} variant="contained">Confirm</Button>
                 </>
               ) : null}
             </div>

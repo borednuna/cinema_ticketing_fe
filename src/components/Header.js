@@ -10,7 +10,7 @@ function Header() {
       <a href="/" className="title">Cinema Ticketing</a>
       <TextField id="filled-basic" label="Search" variant="filled" />
       <div className="menubar">
-        <a href="/tickets" className="subtitle">Tickets</a>
+        <a href="/tickets" className="subtitle">{user === undefined || user === null === 0 ? "" : "Tickets"}</a>
         <a href={user === undefined || user === null === 0 ? "signup" : "/profile" }className="subtitle">{user === undefined || user === null ? "Sign up" : "Profile"}</a>
         <a href={user === undefined || user === null === 0 ? "/signin" : ""} className="subtitle">{user === undefined || user === null ? "Sign in" : ""}</a>
       </div>
