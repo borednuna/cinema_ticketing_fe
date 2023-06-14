@@ -15,7 +15,6 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.0",
     "react-scripts": "5.0.1",
-    "react-seat-picker": "^1.5.3",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.11",
@@ -48,7 +47,6 @@
   },
   "devDependencies": {
     "react-router-dom": "^6.12.1",
-    "react-tooltip": "^4.2.21",
     "sass": "^1.62.1"
   }
 }
