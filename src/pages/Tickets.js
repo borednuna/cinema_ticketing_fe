@@ -7,7 +7,7 @@ function Tickets() {
     const [tickets, setTickets] = useState([]);
 
     const fetchTickets = () => {
-        fetch("http://localhost:3100/transaksi-berdasarkan-id-customer?t_id_customer=" + user.c_id, {
+        fetch("http://localhost:3100/detailtiket?c_id=" + user.c_id, {
             method: "GET",
             headers: {
                 'Access-Control-Allow-Origin': '*'
@@ -30,20 +30,13 @@ function Tickets() {
             <div className="card_container">
                 {tickets.map((ticket) => (
                     <div className="card">
-                        <h2>{"Id customer: " + ticket.t_id_customer}</h2>
-                        <p>{"Tanggal: " + ticket.t_waktu}</p>
-                        <p>{"Total harga: Rp" + ticket.t_total_harga + ",-"}</p>
+                        <h2>{ticket.f_judul}</h2>
                         <p>{ticket.s_nama}</p>
+                        <p>{ticket.j_waktu}</p>
                         <p>{ticket.k_nama}</p>
+                        <p>{"Total harga: Rp" + ticket.t_total_harga + ",-"}</p>
                     </div>
                 ))}
-                {/* <div className="card">
-                    <h2>Movie name</h2>
-                    <p>Date</p>
-                    <p>Time</p>
-                    <p>Studio</p>
-                    <p>Seat</p>
-                </div> */}
             </div>
         </div>
     );

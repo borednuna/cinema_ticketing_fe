@@ -29,18 +29,13 @@ const Seatings = (props) => {
       })
     .then(response => response.json())
     .then(result => {
+      console.log(result)
         setIdTransaksi(result.insertedRow.t_id_transaksi);
+        console.log(idTransaksi)
     })
     .catch(error => {
         console.error('Error:', error);
     });
-
-    for (let i = 0; i < selectedSeats.length; i++) {
-      updateSeat(seatData[selectedSeats[i]].k_id_kursi);
-    }
-
-    alert("Transaksi berhasil");
-    navigate("/tickets");
   }
 
   const updateSeat = (id_kursi) => {
@@ -82,10 +77,22 @@ const Seatings = (props) => {
       t_total_harga: totalprice,
       t_status: "Berhasil",
       t_metode_pembayaran: payment,
-      t_id_customer: user.c_id
+      t_id_customer: user.c_id,
+      t_id_sesi_pemutaran: sesi.ss_id_sesi_pemutaran
     }
     postTransaction(data);
   }
+
+  useEffect(() => {
+    if (idTransaksi !== null) {
+      for (let i = 0; i < selectedSeats.length; i++) {
+        updateSeat(seatData[selectedSeats[i]].k_id_kursi);
+      }
+  
+      alert("Transaksi berhasil");
+      navigate("/tickets");
+    }
+  }, [idTransaksi])
 
   const handleSeatClick = (seatNumber) => {
   if (seatData[seatNumber].k_status === "Terisi") {
